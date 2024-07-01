@@ -1,8 +1,8 @@
 // Устойчивая
 
 // Time Complexity                          Space Complexity
-// Best         Average        Worst        Worst
-// O(nk)	      O(nk)	         O(nk)        O(n+k)
+// Best         Average       Worst         Worst
+// O(nk)        O(nk)         O(nk)         O(n+k)
 function radixSort(arr: number[]): number[] {
   const maxNumber = Math.max(...arr);
   const maxDigits = maxNumber.toString().length;

@@ -1,8 +1,8 @@
 // Устойчивая
 
 // Time Complexity                              Space Complexity
-// Best         Average        Worst            Worst
-// O(n*log(n))	O(n*log(n))	   O(n*log(n))      O(n)
+// Best         Average         Worst           Worst
+// O(n*log(n))  O(n*log(n))     O(n*log(n))     O(n)
 const mergeSort = <T>(arr: T[]): T[] => {
   if (arr.length <= 2) {
     if (arr?.[0] > arr?.[1]) return arr.reverse();

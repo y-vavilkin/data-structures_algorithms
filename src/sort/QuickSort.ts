@@ -1,8 +1,8 @@
 // Неустойчивая
 
 // Time Complexity                          Space Complexity
-// Best         Average        Worst        Worst
-// O(n*log(n))	O(n*log(n))	   O(n^2)       O(log(n))
+// Best         Average       Worst         Worst
+// O(n*log(n))  O(n*log(n))   O(n^2)        O(log(n))
 const quickSort = <T>(arr: T[]): T[] => {
   if (arr.length <= 1) return arr;
 
