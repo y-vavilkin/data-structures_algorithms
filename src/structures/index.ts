@@ -7,5 +7,5 @@ export { default as CircularLinkedList } from './CircularLinkedList';
 export { default as Stack } from './Stack(LIFO)';
 
 // Queue
-export { default as Queue } from './Queue(FIFO)';
+export { default as Queue } from './Queue';
 
