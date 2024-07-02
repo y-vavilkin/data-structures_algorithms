@@ -60,15 +60,16 @@ class LinkedList<T> {
   }
 
   // Поиск элемента по значению
-  find(value: T): NodeItem<T> | null {
-    let current = this.head;
+  find(callback: (value: T) => boolean): NodeItem<T> | null {
+    let currentNode = this.head;
 
-    while (current !== null) {
-      if (current.value === value) {
-        return current;
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        return currentNode;
       }
-      current = current.next;
+      currentNode = currentNode.next;
     }
+
     return null;
   }
 
@@ -83,6 +84,19 @@ class LinkedList<T> {
     }
 
     console.log(values);
+  }
+
+  // Приведение к массиву
+  toArray(): NodeItem<T>[] {
+    const nodes: NodeItem<T>[] = [];
+    let currentNode = this.head;
+
+    while (currentNode !== null) {
+      nodes.push(currentNode);
+      currentNode = currentNode.next;
+    }
+
+    return nodes;
   }
 }
 
