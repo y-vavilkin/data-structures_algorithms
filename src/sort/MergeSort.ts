@@ -35,7 +35,9 @@ const merge = (left: number[], right: number[]): number[] => {
       }
   }
 
-  return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+  return result
+    .concat(left.slice(leftIndex))
+    .concat(right.slice(rightIndex));
 }
 
 export default mergeSort;
