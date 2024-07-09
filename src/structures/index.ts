@@ -9,3 +9,5 @@ export { default as Stack } from './Stack';
 // Queue
 export { default as Queue } from './Queue';
 
+// Hash Table
+export { default as HashTable } from './HashTable';
