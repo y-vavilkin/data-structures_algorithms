@@ -1,10 +1,10 @@
 class NodeItem<T> {
   value: T;
-  next: NodeItem<T> | null;
+  prev: NodeItem<T> | null;
 
   constructor(value: T) {
     this.value = value;
-    this.next = null;
+    this.prev = null;
   }
 }
 
@@ -23,7 +23,7 @@ class Stack<T> {
     if (this.length === this.limit) return this.length;
 
     const node = new NodeItem(value);
-    node.next = this.current;
+    node.prev = this.current;
     this.current = node;
     this.length++;
 
@@ -34,7 +34,7 @@ class Stack<T> {
     if (this.current === null) return;
 
     const node = this.current;
-    this.current = this.current.next;
+    this.current = this.current.prev;
     this.length--;
 
     return node.value;
@@ -44,7 +44,7 @@ class Stack<T> {
     let node = this.current;
     while (node !== null) {
       console.log(node.value)
-      node = node.next;
+      node = node.prev;
     }
   }
 }

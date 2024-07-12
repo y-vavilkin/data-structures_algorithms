@@ -10,7 +10,7 @@ class NodeItem<T> {
   }
 }
 
-class CircularLinkedList<T> {
+class DoublyLinkedList<T> {
   private head: NodeItem<T> | null;
   private length: number;
 
@@ -116,4 +116,4 @@ class CircularLinkedList<T> {
   }
 }
 
-export default CircularLinkedList;
+export default DoublyLinkedList;

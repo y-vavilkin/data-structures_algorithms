@@ -1,16 +1,14 @@
 class NodeItem<T> {
   value: T;
   next: NodeItem<T> | null;
-  prev: NodeItem<T> | null;
 
   constructor(value: T) {
     this.value = value;
     this.next = null;
-    this.prev = null;
   }
 }
 
-class CircularDoublyLinkedList<T> {
+class CircularLinkedList<T> {
   private head: NodeItem<T> | null;
   private tail: NodeItem<T> | null;
   private length: number;
@@ -29,12 +27,9 @@ class CircularDoublyLinkedList<T> {
       this.head = newNode;
       this.tail = newNode;
       newNode.next = newNode;
-      newNode.prev = newNode;
     } else {
-      newNode.prev = this.tail;
-      newNode.next = this.head;
       this.tail!.next = newNode;
-      this.head.prev = newNode;
+      newNode.next = this.head;
       this.tail = newNode;
     }
     return ++this.length;
@@ -47,6 +42,7 @@ class CircularDoublyLinkedList<T> {
     }
 
     let current = this.head;
+    let prev = this.tail;
 
     do {
       if (current.value === value) {
@@ -56,16 +52,18 @@ class CircularDoublyLinkedList<T> {
         } else {
           if (current === this.head) {
             this.head = current.next;
+            this.tail!.next = this.head;
+          } else if (current === this.tail) {
+            this.tail = prev;
+            this.tail!.next = this.head;
+          } else {
+            prev!.next = current.next;
           }
-          if (current === this.tail) {
-            this.tail = current.prev;
-          }
-          current.prev!.next = current.next;
-          current.next!.prev = current.prev;
         }
         this.length--;
         break;
       }
+      prev = current;
       current = current.next!;
     } while (current !== this.head);
 
@@ -110,4 +108,4 @@ class CircularDoublyLinkedList<T> {
   }
 }
 
-export default CircularDoublyLinkedList;
+export default CircularLinkedList;
